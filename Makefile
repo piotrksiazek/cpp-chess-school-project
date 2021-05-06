@@ -1,6 +1,6 @@
 CC		:= g++
 CFLAGS	:= `sdl2-config --libs --cflags`
-LDFLAGS := -lSDL2
+LDFLAGS := -lSDL2 -lSDL2_image
 LDLIBS  :=
 
 %.x: %.o

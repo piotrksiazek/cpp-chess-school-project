@@ -1,4 +1,5 @@
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
 #include <iostream>
 #include <string>
 using namespace std;
@@ -21,6 +22,8 @@ SDL_Window* createWindow(int width, int height, const char* title)
     return win;
 }
 
+
+
 int initSDL()
 {
     /*Inicjalizuję bibliotekę SDL*/
@@ -30,6 +33,16 @@ int initSDL()
         SDL_Quit();
         return 1;
     }
-    cout<<"success"<<endl;
+    cout<<"success init sdl"<<endl;
     return 0;
+}
+
+void initSDLImage()
+{
+    if( !( IMG_Init( IMG_INIT_PNG ) & IMG_INIT_PNG ) )
+    {
+        cout<<"SDL image initialization error"<<endl;
+        return;
+    }
+    cout<<"success init sdl image"<<endl;
 }

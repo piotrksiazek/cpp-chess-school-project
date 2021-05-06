@@ -18,8 +18,10 @@ int main()
 {
     bool exitGame = false;
     initSDL();
+    initSDLImage();
     SDL_Event event;
     SDL_Window* window = createWindow(WIDTH, HEIGHT, "chess");
+    SDL_Surface * surface = SDL_GetWindowSurface(window);
     SDL_Renderer* renderer = SDL_CreateRenderer( window, -1, SDL_RENDERER_ACCELERATED);
     SDL_RenderClear( renderer );
     Board board(renderer);
