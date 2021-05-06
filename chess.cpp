@@ -21,7 +21,7 @@ int main()
     SDL_Window* window = createWindow(WIDTH, HEIGHT, "chess");
     SDL_Renderer* renderer = SDL_CreateRenderer( window, -1, SDL_RENDERER_ACCELERATED);
     SDL_RenderClear( renderer );
-    Board board;
+    Board board(renderer);
     while(!exitGame)
     {
         while (SDL_PollEvent(&event)) 

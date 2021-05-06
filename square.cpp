@@ -1,7 +1,44 @@
 #include <iostream>
+#include <SDL2/SDL.h>
 #include "square.hpp"
+#include "constants.hpp"
+using namespace std;
 
-Square::Square()
+Square::Square(){}
+void Square::addProps(int x, int y, int r, int g, int b, int a, SDL_Renderer* renderer)
 {
-    std::cout<<"I am square"<<std::endl;
+    this->x = x;
+    this->y = y;
+    this->r = r;
+    this->g = g;
+    this->b = b;
+    this->a = a;
+    this->renderer = renderer;
 }
+
+SDL_Rect Square::createRect()
+{
+    SDL_Rect r;
+    r.x = this->x;
+    r.y = this->y;
+    r.w = RECT_SIZE;
+    r.h = RECT_SIZE;
+
+    return r;
+}
+
+void Square::print()
+{
+    cout<<"x:  "<<this->x<<endl;
+    cout<<"y:  "<<this->y<<endl;
+    cout<<"r:  "<<this->r<<endl;
+    cout<<"g:  "<<this->g<<endl;
+    cout<<"b:  "<<this->b<<endl;
+    cout<<"a:  "<<this->a<<endl<<endl;
+}
+
+// void Square::setColor(int r, int g, int b, int a)
+// {
+//     SDL_SetRenderDrawColor( this->renderer, r, g, b, a );
+//     SDL_RenderFillRect( this->renderer, this->rectangle );
+// }
