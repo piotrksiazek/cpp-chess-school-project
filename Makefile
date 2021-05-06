@@ -12,8 +12,9 @@ LDLIBS  :=
 all: chess.x
 
 
-chess.x: chess.o initialization.o board.o square.o
-chess.o: chess.cpp initialization.hpp constants.hpp
+chess.x: chess.o initialization.o board.o square.o utils.o
+chess.o: chess.cpp initialization.hpp constants.hpp utils.hpp
+utils.o: utils.cpp constants.hpp square.hpp board.hpp
 initialization.o: initialization.cpp
 board.o: board.cpp constants.hpp square.hpp
 square.o: square.cpp constants.hpp 

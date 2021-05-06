@@ -5,6 +5,9 @@
 using namespace std;
 
 Square::Square(){}
+
+//Może trochę dziwnie to wygląda, bo addProps roby tyle, co mógłby zrobić konstruktor, ale chciałem aby plansza Square board[8][8]
+//w klasie board została utworzona bezpośrednio w klasie, bez wyciągania tego np. do funkcji main.
 void Square::addProps(int x, int y, int r, int g, int b, int a, SDL_Renderer* renderer)
 {
     this->x = x;

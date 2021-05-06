@@ -4,6 +4,7 @@
 #include "initialization.hpp"
 #include "constants.hpp"
 #include "board.hpp"
+#include "utils.hpp"
 using namespace std;
 
 bool isExitGame(SDL_Event *event)
@@ -22,12 +23,16 @@ int main()
     SDL_Renderer* renderer = SDL_CreateRenderer( window, -1, SDL_RENDERER_ACCELERATED);
     SDL_RenderClear( renderer );
     Board board(renderer);
+    int squareX, squareY;
     while(!exitGame)
     {
+        SDL_Delay(100);
         while (SDL_PollEvent(&event)) 
         {
             exitGame = isExitGame(&event);
         }
+        getCurrentHoveredRect(board, &squareX, &squareY);
+        changeColor(board, squareX, squareY);
         SDL_RenderPresent(renderer);
     }
 

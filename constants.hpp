@@ -5,5 +5,5 @@
 #define RECT_SIZE WIDTH / SQUARES_PER_ROW
 
 // colors
-#define WHITE 0 ,0, 0, 255
-#define BLACK 255, 255, 255, 255
+#define BLACK 0 ,0, 0, 255
+#define WHITE 255, 255, 255, 255
