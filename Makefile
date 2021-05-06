@@ -11,9 +11,9 @@ LDLIBS  :=
 
 all: chess.x
 
-#Zadanie 1 obsluga
+
 chess.x: chess.o initialization.o
-chess.o: chess.cpp initialization.hpp
+chess.o: chess.cpp initialization.hpp constants.hpp
 initialization.o: initialization.cpp
 
 

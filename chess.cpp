@@ -1,9 +1,10 @@
 #include <iostream>
 #include "initialization.hpp"
+#include "constants.hpp"
 using namespace std;
 
 int main()
 {
     initSDL();
-    SDL_Window* window = createWindow(500, 500, "chess");
+    SDL_Window* window = createWindow(WIDTH, HEIGHT, "chess");
 }
