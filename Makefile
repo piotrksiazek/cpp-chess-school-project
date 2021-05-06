@@ -9,10 +9,11 @@ LDLIBS  :=
 %.o: %.c
 	$(CC) $(CFLAGS) -c -o $@ $<
 
-all: chess
+all: chess.x
 
 #Zadanie 1 obsluga
-chess: initialization.o
+chess.x: chess.o initialization.o
+chess.o: chess.cpp initialization.hpp
 initialization.o: initialization.cpp
 
 

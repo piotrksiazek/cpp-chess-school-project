@@ -33,10 +33,3 @@ int initSDL()
     cout<<"success"<<endl;
     return 0;
 }
-
-int main()
-{
-    initSDL();
-    SDL_Window*win = createWindow(500, 500, "title"); /*tworzę okno*/
-    SDL_Renderer* renderer = SDL_CreateRenderer( win, -1, SDL_RENDERER_ACCELERATED); /*tworzę renderer*/
-}
