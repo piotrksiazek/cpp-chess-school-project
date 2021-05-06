@@ -28,6 +28,7 @@ int main()
         {
             exitGame = isExitGame(&event);
         }
+        SDL_RenderPresent(renderer);
     }
 
     SDL_DestroyWindow(window);

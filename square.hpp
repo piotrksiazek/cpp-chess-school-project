@@ -11,8 +11,8 @@ class Square
         SDL_Renderer* renderer;
         Square();
         void addProps(int x, int y, int r, int g, int b, int a, SDL_Renderer* renderer);
-        SDL_Rect createRect();
+        SDL_Rect createRect(int x, int y);
         void print();
-        // void setColor(int r, int g, int b, int a);
+        void setColor(int r, int g, int b, int a);
 };
 #endif

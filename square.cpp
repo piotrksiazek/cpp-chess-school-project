@@ -14,13 +14,15 @@ void Square::addProps(int x, int y, int r, int g, int b, int a, SDL_Renderer* re
     this->b = b;
     this->a = a;
     this->renderer = renderer;
+    this->rectangle = createRect(x, y);
+    setColor(r,g,b,a);
 }
 
-SDL_Rect Square::createRect()
+SDL_Rect Square::createRect(int x, int y)
 {
     SDL_Rect r;
-    r.x = this->x;
-    r.y = this->y;
+    r.x = x * RECT_SIZE;
+    r.y = y * RECT_SIZE;
     r.w = RECT_SIZE;
     r.h = RECT_SIZE;
 
@@ -37,8 +39,9 @@ void Square::print()
     cout<<"a:  "<<this->a<<endl<<endl;
 }
 
-// void Square::setColor(int r, int g, int b, int a)
-// {
-//     SDL_SetRenderDrawColor( this->renderer, r, g, b, a );
-//     SDL_RenderFillRect( this->renderer, this->rectangle );
-// }
+void Square::setColor(int r, int g, int b, int a)
+{
+    SDL_Rect rectangle = this->rectangle;
+    SDL_SetRenderDrawColor( this->renderer, r, g, b, a );
+    SDL_RenderFillRect( this->renderer, &rectangle );
+}
