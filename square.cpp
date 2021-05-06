@@ -34,6 +34,7 @@ SDL_Rect Square::createRect(int x, int y)
 
 void Square::print()
 {
+    cout<<"name:   "this->name<<endl;
     cout<<"x:  "<<this->x<<endl;
     cout<<"y:  "<<this->y<<endl;
     cout<<"r:  "<<this->r<<endl;

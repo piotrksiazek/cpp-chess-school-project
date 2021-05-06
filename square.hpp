@@ -4,6 +4,7 @@
 class Square
 {
     public:
+        string name;
         SDL_Rect rectangle;
         SDL_Renderer* renderer;
         int x;

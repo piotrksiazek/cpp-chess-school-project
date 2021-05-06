@@ -26,6 +26,12 @@ int main()
     SDL_RenderClear( renderer );
     Board board(renderer);
     int squareX, squareY;
+
+    SDL_Surface *image;
+    image = IMG_Load("king.png");
+    SDL_Texture* image_texture = SDL_CreateTextureFromSurface(renderer, image);
+    if(!image) cout<<"no image"<<endl;
+
     while(!exitGame)
     {
         SDL_Delay(100);
@@ -34,7 +40,7 @@ int main()
             exitGame = isExitGame(&event);
         }
         getCurrentHoveredRect(board, &squareX, &squareY);
-        changeColor(board, squareX, squareY);
+        SDL_RenderCopy(renderer, image_texture, nullptr, &board.board[0][1].rectangle);
         SDL_RenderPresent(renderer);
     }
 
