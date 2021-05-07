@@ -21,13 +21,13 @@ void Board::initBoard()
         /*Iteruję przez kolumny*/ 
         for (int x=0; x<SQUARES_PER_ROW; x++)
         {
+            Piece *king = new King(x, y, "king", "king.png", this->renderer);
+            this->board[y][x].piece = king;
             SDL_Rect rect;
             if(++counter % 2 == 0)
             {
                 this->board[y][x].addProps(x, y, WHITE, this->renderer);
-                Piece *king = new King(x, y, "king", "king.png", this->renderer);
-                this->board[y][x].piece = king;
-                this->board[y][x].piece->render(&this->board[y][x].rectangle);
+                // this->board[y][x].piece->render(&this->board[y][x].rectangle);
             }
             else
                 this->board[y][x].addProps(x, y, BLACK, this->renderer);
@@ -36,4 +36,15 @@ void Board::initBoard()
        
    }
    SDL_RenderPresent(renderer);
+}
+
+void Board::renderPieces()
+{
+    for(int y=0; y<8; y++)
+    {
+        for(int x=0; x<8; x++)
+        {
+            this->board[y][x].piece->render(&this->board[y][x].rectangle);
+        }
+    }
 }

@@ -5,6 +5,7 @@
 #include "constants.hpp"
 #include "board.hpp"
 #include "utils.hpp"
+#include "square.hpp"
 using namespace std;
 
 bool isExitGame(SDL_Event *event)
@@ -24,7 +25,7 @@ int main()
     SDL_Surface * surface = SDL_GetWindowSurface(window);
     SDL_Renderer* renderer = SDL_CreateRenderer( window, -1, SDL_RENDERER_ACCELERATED);
     SDL_RenderClear( renderer );
-    Board board(renderer);
+    Board board(renderer); 
     int squareX, squareY;
 
     SDL_Surface *image;
@@ -42,6 +43,7 @@ int main()
         getCurrentHoveredRect(board, &squareX, &squareY);
         SDL_RenderCopy(renderer, image_texture, nullptr, &board.board[0][1].rectangle);
         SDL_RenderPresent(renderer);
+        board.renderPieces();
     }
 
     SDL_DestroyWindow(window);

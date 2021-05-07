@@ -14,5 +14,6 @@ class Board
         // Square ***board = new Square**[20];
         Board(SDL_Renderer* renderer);
         void initBoard();
+        void renderPieces();
 };
 #endif

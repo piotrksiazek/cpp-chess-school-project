@@ -21,7 +21,6 @@ void Piece::loadTexture()
     SDL_Surface *image;
     image = IMG_Load(this->filename);
     if(!image) cout<<"no image"<<endl;
-    cout<<filename<<endl;
     this->image_texture = SDL_CreateTextureFromSurface(this->renderer, image);
 }
 
