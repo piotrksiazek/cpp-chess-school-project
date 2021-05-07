@@ -22,9 +22,7 @@ class Piece
         Piece();
         void render(SDL_Rect *rectangle); //TODO później zmień to na friend
 
-    protected:
         void loadTexture();
-        void loadMembers(); 
 };
 
 #endif

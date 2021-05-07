@@ -8,6 +8,10 @@
 
 King::King(int x, int y, string name, const char* filename, SDL_Renderer* renderer)
 {
-    // loadTexture();
-    // loadMembers();
+    this->x=x;
+    this->y=y;
+    this->name=name;
+    this->filename=filename;
+    this->renderer=renderer;
+    loadTexture();
 }
