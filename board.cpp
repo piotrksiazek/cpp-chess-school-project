@@ -2,6 +2,8 @@
 #include "board.hpp"
 #include "constants.hpp"
 #include "square.hpp"
+#include "king.hpp"
+#include "piece.hpp"
 using namespace std;
 
 Board::Board(SDL_Renderer* renderer)
@@ -21,7 +23,12 @@ void Board::initBoard()
         {
             SDL_Rect rect;
             if(++counter % 2 == 0)
+            {
                 this->board[y][x].addProps(x, y, WHITE, this->renderer);
+                Piece *king = new King(x, y, "king", "king.png", this->renderer);
+                cout<< typeid(king).name() <<endl;
+                this->board[y][x].piece = king;
+            }
             else
                 this->board[y][x].addProps(x, y, BLACK, this->renderer);
         }

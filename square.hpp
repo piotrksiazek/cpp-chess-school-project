@@ -1,9 +1,12 @@
 #include <SDL2/SDL.h>
+#include "piece.hpp"
+
 #ifndef SQUARE_H
 #define SQUARE_H
 class Square
 {
     public:
+        Piece *piece;
         bool isFree;
         SDL_Rect rectangle;
         SDL_Renderer* renderer;
