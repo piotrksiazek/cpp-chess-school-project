@@ -4,7 +4,7 @@
 class Square
 {
     public:
-        string name;
+        bool isFree;
         SDL_Rect rectangle;
         SDL_Renderer* renderer;
         int x;
