@@ -12,13 +12,14 @@ LDLIBS  :=
 all: chess.x
 
 
-chess.x: chess.o initialization.o board.o square.o utils.o piece.o
+chess.x: chess.o initialization.o board.o square.o utils.o piece.o king.o
 chess.o: chess.cpp initialization.hpp constants.hpp utils.hpp
 utils.o: utils.cpp constants.hpp square.hpp board.hpp
 initialization.o: initialization.cpp
 board.o: board.cpp constants.hpp square.hpp
 square.o: square.cpp constants.hpp 
 piece.o: piece.cpp
+king.o: king.cpp piece.hpp
 
 .PHONY: clean tar
 

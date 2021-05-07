@@ -6,12 +6,14 @@
 #include "piece.hpp"
 
 using namespace std;
-Piece::Piece(int x, int y, string name, const char* filename, SDL_Renderer* renderer)
+Piece::Piece()
 {
-    this->name=name;
-    this->filename=filename;
-    this->renderer=renderer;
-    loadTexture();
+    // this->x=x;
+    // this->y=y;
+    // this->name=name;
+    // this->filename=filename;
+    // this->renderer=renderer;
+    // loadTexture();
 }
 
 void Piece::loadTexture()
@@ -19,4 +21,14 @@ void Piece::loadTexture()
     SDL_Surface *image;
     image = IMG_Load(this->filename);
     this->image_texture = SDL_CreateTextureFromSurface(this->renderer, image);
+}
+
+void Piece::loadMembers()
+{
+    this->x=x;
+    this->y=y;
+    this->name=name;
+    this->filename=filename;
+    this->renderer=renderer;
+    loadTexture();
 }
