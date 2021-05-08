@@ -32,7 +32,7 @@ int main()
     image = IMG_Load("king.png");
     SDL_Texture* image_texture = SDL_CreateTextureFromSurface(renderer, image);
     if(!image) cout<<"no image"<<endl;
-
+    board.populatePieces();
     while(!exitGame)
     {
         SDL_Delay(100);
@@ -43,7 +43,6 @@ int main()
         getCurrentHoveredRect(board, &squareX, &squareY);
         SDL_RenderCopy(renderer, image_texture, nullptr, &board.board[0][1].rectangle);
         SDL_RenderPresent(renderer);
-        board.renderPieces();
     }
 
     SDL_DestroyWindow(window);

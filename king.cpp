@@ -15,3 +15,8 @@ King::King(int x, int y, string name, const char* filename, SDL_Renderer* render
     this->renderer=renderer;
     loadTexture();
 }
+
+// void King::checkPossibleMoves(Board *board)
+// {
+//     cout<<"possible moves"<<endl;
+// }

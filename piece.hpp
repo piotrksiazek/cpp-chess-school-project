@@ -16,12 +16,8 @@ class Piece
         const char* filename;
         SDL_Texture* image_texture;
         SDL_Renderer* renderer;
-
-
-        // Piece(int x, int y, string name, const char* filename, SDL_Renderer* renderer); //usunąłem bo chyba nie potrzebne
         Piece();
         void render(SDL_Rect *rectangle); //TODO później zmień to na friend
-
         void loadTexture();
 };
 
