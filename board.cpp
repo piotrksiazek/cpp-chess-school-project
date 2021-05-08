@@ -18,8 +18,9 @@ void Board::populatePieces()
     int index=0;
     Piece *b_king = new King(4, 0, "b_king", "images/b_king.png", this->renderer);
     this->board[b_king->y][b_king->x].piece = b_king;
-    this->board[b_king->y][b_king->x].piece->render(&this->board[b_king->y][b_king->x].piece->rectangle);
-    this->pieces[index++] = b_king;
+    // this->board[b_king->y][b_king->x].piece->render(&this->board[b_king->y][b_king->x].piece->rectangle);
+    // this->pieces[index++] = b_king;
+    this->pieces.push_back(b_king);
 
     // //white king
     // Piece *w_king = new King(4, 7, "w_king", "images/w_king.png", this->renderer);
@@ -62,11 +63,8 @@ void Board::initBoard()
 
 void Board::renderPieces()
 {
-    for(int y=0; y<8; y++)
+    for(Piece *piece : this->pieces)
     {
-        for(int x=0; x<8; x++)
-        {
-            this->board[y][x].piece->render(&this->board[y][x].rectangle);
-        }
+        piece->render(&piece->rectangle);
     }
 }

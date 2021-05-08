@@ -1,4 +1,5 @@
 #include <string>
+#include <vector>
 #include "square.hpp"
 #include "constants.hpp"
 #include "piece.hpp"
@@ -12,8 +13,8 @@ class Board
         SDL_Renderer* renderer;
         int numberOfSquares;
         Square board[SQUARES_PER_ROW][SQUARES_PER_ROW];
-        // Square ***board = new Square**[20];
-        Piece *pieces[32];
+        // Piece *pieces[32];
+        vector<Piece*> pieces;
         Board(SDL_Renderer* renderer);
         void initBoard();
         void renderPieces();

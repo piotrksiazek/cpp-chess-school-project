@@ -42,6 +42,7 @@ int main()
         }
         getCurrentHoveredRect(board, &squareX, &squareY);
         // SDL_RenderCopy(renderer, image_texture, nullptr, &board.board[0][1].rectangle);
+        board.renderPieces();
         SDL_RenderPresent(renderer);
     }
 
