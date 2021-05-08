@@ -15,12 +15,11 @@ Board::Board(SDL_Renderer* renderer)
 void Board::populatePieces()
 {
     //black king
-    int index=0;
-    Piece *b_king = new King(4, 0, "b_king", "images/b_king.png", this->renderer);
-    this->board[b_king->y][b_king->x].piece = b_king;
-    // this->board[b_king->y][b_king->x].piece->render(&this->board[b_king->y][b_king->x].piece->rectangle);
-    // this->pieces[index++] = b_king;
-    this->pieces.push_back(b_king);
+    // Piece *b_king = new King(4, 0, "b_king", "images/b_king.png", this->renderer);
+    // this->board[b_king->y][b_king->x].piece = b_king;
+    // this->pieces.push_back(b_king);
+    this->addPiece<King>(4, 0, "b_king", "images/b_king.png");
+    this->addPiece<King>(4, 7, "w_king", "images/w_king.png");
 
     // //white king
     // Piece *w_king = new King(4, 7, "w_king", "images/w_king.png", this->renderer);
@@ -67,4 +66,12 @@ void Board::renderPieces()
     {
         piece->render(&piece->rectangle);
     }
+}
+
+template <class T>
+void Board::addPiece(int x, int y, string name, const char* filename)
+{
+    Piece *new_piece = new T(x, y, name, filename, this->renderer);
+    this->board[new_piece->y][new_piece->x].piece = new_piece;
+    this->pieces.push_back(new_piece);
 }

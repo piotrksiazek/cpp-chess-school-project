@@ -20,5 +20,8 @@ class Board
         void renderPieces();
     // private:
         void populatePieces();
+    private:
+        template <class T>
+        void addPiece(int x, int y, string name, const char* filename);
 };
 #endif
