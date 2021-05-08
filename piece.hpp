@@ -16,9 +16,12 @@ class Piece
         const char* filename;
         SDL_Texture* image_texture;
         SDL_Renderer* renderer;
+        SDL_Rect rectangle;
         Piece();
         void render(SDL_Rect *rectangle); //TODO później zmień to na friend
         void loadTexture();
+    protected:
+        void createRect();
 };
 
 #endif

@@ -18,20 +18,20 @@ void Board::populatePieces()
     int index=0;
     Piece *b_king = new King(4, 0, "b_king", "images/b_king.png", this->renderer);
     this->board[b_king->y][b_king->x].piece = b_king;
-    this->board[b_king->y][b_king->x].piece->render(&this->board[b_king->y][b_king->x].rectangle);
+    this->board[b_king->y][b_king->x].piece->render(&this->board[b_king->y][b_king->x].piece->rectangle);
     this->pieces[index++] = b_king;
 
-    //white king
-    Piece *w_king = new King(4, 7, "w_king", "images/w_king.png", this->renderer);
-    this->board[w_king->y][w_king->x].piece = w_king;
-    this->board[w_king->y][w_king->x].piece->render(&this->board[w_king->y][w_king->x].rectangle);
-    this->pieces[index++] = w_king;
+    // //white king
+    // Piece *w_king = new King(4, 7, "w_king", "images/w_king.png", this->renderer);
+    // this->board[w_king->y][w_king->x].piece = w_king;
+    // this->board[w_king->y][w_king->x].piece->render(&this->board[w_king->y][w_king->x].rectangle);
+    // this->pieces[index++] = w_king;
 
-    //black queen
-    Piece *b_queen = new King(3, 0, "b_queen", "images/b_queen.png", this->renderer);
-    this->board[b_queen->y][b_queen->x].piece = b_queen;
-    this->board[b_queen->y][b_queen->x].piece->render(&this->board[b_queen->y][b_queen->x].rectangle);
-    this->pieces[index++] = b_queen;
+    // //black queen
+    // Piece *b_queen = new King(3, 0, "b_queen", "images/b_queen.png", this->renderer);
+    // this->board[b_queen->y][b_queen->x].piece = b_queen;
+    // this->board[b_queen->y][b_queen->x].piece->render(&this->board[b_queen->y][b_queen->x].rectangle);
+    // this->pieces[index++] = b_queen;
 }
 
 void Board::initBoard()

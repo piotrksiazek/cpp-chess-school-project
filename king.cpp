@@ -14,6 +14,7 @@ King::King(int x, int y, string name, const char* filename, SDL_Renderer* render
     this->filename=filename;
     this->renderer=renderer;
     loadTexture();
+    createRect();
 }
 
 // void King::checkPossibleMoves(Board *board)

@@ -4,6 +4,7 @@
 #include <SDL2/SDL_image.h>
 #include <string>
 #include "piece.hpp"
+#include "constants.hpp"
 
 using namespace std;
 Piece::Piece()
@@ -27,4 +28,14 @@ void Piece::loadTexture()
 void Piece::render(SDL_Rect *rectangle)
 {
     SDL_RenderCopy(this->renderer, this->image_texture, nullptr, rectangle);
+}
+
+void Piece::createRect()
+{
+    SDL_Rect r;
+    r.x = this->x * RECT_SIZE;
+    r.y = this->y * RECT_SIZE;
+    r.w = RECT_SIZE;
+    r.h = RECT_SIZE;
+    this->rectangle=r;
 }

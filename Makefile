@@ -18,7 +18,7 @@ utils.o: utils.cpp constants.hpp square.hpp board.hpp
 initialization.o: initialization.cpp
 board.o: board.cpp constants.hpp square.hpp king.hpp piece.hpp
 square.o: square.cpp constants.hpp piece.hpp
-piece.o: piece.cpp
+piece.o: piece.cpp constants.hpp
 king.o: king.cpp piece.hpp
 
 .PHONY: clean tar
