@@ -6,6 +6,7 @@
 #include "board.hpp"
 #include "utils.hpp"
 #include "square.hpp"
+#include "controller.hpp"
 using namespace std;
 
 bool isExitGame(SDL_Event *event)
@@ -25,7 +26,8 @@ int main()
     SDL_Surface * surface = SDL_GetWindowSurface(window);
     SDL_Renderer* renderer = SDL_CreateRenderer( window, -1, SDL_RENDERER_ACCELERATED);
     SDL_RenderClear( renderer );
-    Board board(renderer); 
+    Board board(renderer);
+    Controller controller(&board); 
     int squareX, squareY;
 
     // SDL_Surface *image;
