@@ -16,6 +16,7 @@ Piece::Piece()
     // this->renderer=renderer;
     // loadTexture();
 }
+void Piece::getPossibleMoves() {}
 
 void Piece::loadTexture()
 {

@@ -5,6 +5,7 @@
 #include <string>
 #include "piece.hpp"
 #include "king.hpp"
+#include "utils.hpp"
 
 King::King(int x, int y, string name, const char* filename, SDL_Renderer* renderer)
 {
@@ -17,7 +18,7 @@ King::King(int x, int y, string name, const char* filename, SDL_Renderer* render
     createRect();
 }
 
-// void King::checkPossibleMoves(Board *board)
-// {
-//     cout<<"possible moves"<<endl;
-// }
+void King::getPossibleMoves()
+{
+    cout<<"possible moves"<<endl;
+}

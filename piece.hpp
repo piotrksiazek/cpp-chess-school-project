@@ -21,6 +21,7 @@ class Piece
         void render(SDL_Rect *rectangle); //TODO później zmień to na friend
         void loadTexture();
         void print();
+        virtual void getPossibleMoves();
     protected:
         void createRect();
 };

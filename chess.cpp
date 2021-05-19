@@ -29,7 +29,7 @@ int main()
     Board board(renderer);
     int squareX, squareY;
     board.populatePieces();
-    Controller controller(&board); 
+    Controller controller(&board, &squareX, &squareY); 
     while(!exitGame)
     {
         SDL_Delay(100);
@@ -38,6 +38,7 @@ int main()
             exitGame = isExitGame(&event);
         }
         getCurrentHoveredRect(board, &squareX, &squareY);
+        controller.getPossibleMoves();
         // SDL_RenderCopy(renderer, image_texture, nullptr, &board.board[0][1].rectangle);
         board.renderPieces();
         SDL_RenderPresent(renderer);
