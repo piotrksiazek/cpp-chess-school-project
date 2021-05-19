@@ -27,14 +27,9 @@ int main()
     SDL_Renderer* renderer = SDL_CreateRenderer( window, -1, SDL_RENDERER_ACCELERATED);
     SDL_RenderClear( renderer );
     Board board(renderer);
-    Controller controller(&board); 
     int squareX, squareY;
-
-    // SDL_Surface *image;
-    // image = IMG_Load("king.png");
-    // SDL_Texture* image_texture = SDL_CreateTextureFromSurface(renderer, image);
-    // if(!image) cout<<"no image"<<endl;
     board.populatePieces();
+    Controller controller(&board); 
     while(!exitGame)
     {
         SDL_Delay(100);

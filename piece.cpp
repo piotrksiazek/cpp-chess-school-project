@@ -39,3 +39,10 @@ void Piece::createRect()
     r.h = RECT_SIZE;
     this->rectangle=r;
 }
+
+void Piece::print()
+{
+    cout<< endl << "Name: " << this->name << endl;
+    cout<<"Position x: " << this->x << endl;
+    cout<<"Position y: " << this->y << endl << endl;
+}

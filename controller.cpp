@@ -8,5 +8,8 @@ using namespace std;
 Controller::Controller(Board *board)
 {
     this->board = board;
-    
+    for(auto& piece: this->board->pieces)
+    {
+        piece->print();
+    }
 }
