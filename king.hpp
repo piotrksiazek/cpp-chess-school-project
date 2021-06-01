@@ -12,6 +12,6 @@ class King : public Piece
 {
     public:
         King(int x, int y, string name, const char* filename, SDL_Renderer* renderer);
-        void getPossibleMoves();
+        vector<Position> getPossibleMoves();
 };
 #endif

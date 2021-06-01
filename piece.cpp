@@ -3,9 +3,11 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <string>
+#include <vector>
 #include "utils.hpp"
 #include "piece.hpp"
 #include "constants.hpp"
+#include "position.hpp"
 
 using namespace std;
 Piece::Piece()
@@ -17,7 +19,7 @@ Piece::Piece()
     // this->renderer=renderer;
     // loadTexture();
 }
-void Piece::getPossibleMoves() {}
+vector<Position> Piece::getPossibleMoves() {}
 
 void Piece::loadTexture()
 {

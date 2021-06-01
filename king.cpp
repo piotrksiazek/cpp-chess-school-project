@@ -4,6 +4,7 @@
 #include <SDL2/SDL_image.h>
 #include <string>
 #include <vector>
+#include "position.hpp"
 #include "piece.hpp"
 #include "king.hpp"
 #include "utils.hpp"
@@ -19,7 +20,9 @@ King::King(int x, int y, string name, const char* filename, SDL_Renderer* render
     createRect();
 }
 
-void King::getPossibleMoves()
+vector<Position> King::getPossibleMoves()
 {
+    vector<Position> positions;
     cout<<"possible moves"<<endl;
+    return positions;
 }
