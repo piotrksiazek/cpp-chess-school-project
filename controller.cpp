@@ -8,6 +8,7 @@
 #include "square.hpp"
 #include "board.hpp"
 #include "utils.hpp"
+#include "position.hpp"
 
 using namespace std;
 Controller::Controller(Board *board, int * squareX, int *squareY)
