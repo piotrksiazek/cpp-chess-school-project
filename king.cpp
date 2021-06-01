@@ -23,6 +23,23 @@ King::King(int x, int y, string name, const char* filename, SDL_Renderer* render
 vector<Position> King::getPossibleMoves()
 {
     vector<Position> positions;
-    cout<<"possible moves"<<endl;
+    Position currentPosition = {this->x, this->y};
+    for(int x=-1; x<=1; x++)
+    {
+        for(int y=-1; y<=1; y++)
+        {
+            int moveX = currentPosition.x + x;
+            int moveY = currentPosition.y + y;
+            if(moveX < 8 && moveX >= 0 && moveY < 8 && moveY >= 0)
+            {
+                Position newPossiblePosition = {moveX, moveY};
+                positions.push_back(newPossiblePosition);
+            }
+        }
+    }
+    for(auto& position : positions)
+    {
+        cout<<"x: " <<position.x << endl << "y: " << position.y << endl;
+    }
     return positions;
 }

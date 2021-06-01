@@ -7,3 +7,4 @@
 // colors
 #define BLACK 121 ,121, 50, 255
 #define WHITE 255, 255, 255, 255
+#define RED 255, 0, 0, 255

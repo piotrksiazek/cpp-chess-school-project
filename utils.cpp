@@ -20,5 +20,5 @@ Position getCurrentHoveredRect(Board &board, int *squareX, int *squareY)
 
 void changeColor(Board &board, int squareX, int squareY)
 {
-    board.board[squareY][squareX].setColor(BLACK);
+    board.board[squareY][squareX].setColor(RED);
 }

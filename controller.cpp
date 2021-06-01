@@ -41,13 +41,14 @@ vector<Position> Controller :: getPossibleMoves()
 {
     Piece *piece;
     piece = this->GetPieceOnMouseOver();
+    vector<Position> positions;
     if(piece != nullptr)
     {
-        piece->getPossibleMoves();
+        positions = piece->getPossibleMoves();
     }
-    
-    vector<Position> positions;
-    Position position = {1, 2};
-    positions.push_back(position);
+    for(auto& pos : positions)
+    {
+        changeColor(*this->board, pos.x, pos.y);
+    }
     return positions;
 }
