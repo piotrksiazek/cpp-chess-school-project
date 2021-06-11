@@ -1,5 +1,5 @@
 #include <iostream>
-#include <SDL2/SDL.h>
+#include <SDL.h>
 #include "constants.hpp"
 #include "square.hpp"
 #include "board.hpp"

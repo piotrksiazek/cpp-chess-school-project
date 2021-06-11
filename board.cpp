@@ -18,8 +18,8 @@ void Board::populatePieces()
     // Piece *b_king = new King(4, 0, "b_king", "images/b_king.png", this->renderer);
     // this->board[b_king->y][b_king->x].piece = b_king;
     // this->pieces.push_back(b_king);
-    this->addPiece<King>(4, 0, "b_king", "images/b_king.png");
-    this->addPiece<King>(4, 7, "w_king", "images/w_king.png");
+    this->addPiece<King>(4, 0, "b_king", "b_king.png");
+    this->addPiece<King>(4, 7, "w_king", "w_king.png");
 
     // //white king
     // Piece *w_king = new King(4, 7, "w_king", "images/w_king.png", this->renderer);

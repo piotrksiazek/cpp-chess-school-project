@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_image.h>
+#include <SDL.h>
+#include <SDL_image.h>
 #include <string>
 #include <vector>
 #include "utils.hpp"
@@ -12,14 +12,19 @@
 using namespace std;
 Piece::Piece()
 {
-    // this->x=x;
-    // this->y=y;
-    // this->name=name;
-    // this->filename=filename;
-    // this->renderer=renderer;
-    // loadTexture();
+    //watch out
+    //this->x=x;
+    //this->y=y;
+   // this->name=name;
+   // this->filename=filename;
+   // this->renderer=renderer;
+  //  loadTexture();
 }
-vector<Position> Piece::getPossibleMoves() {}
+vector<Position> Piece::getPossibleMoves() 
+{
+    vector<Position> position;
+    return position;
+}
 
 void Piece::loadTexture()
 {

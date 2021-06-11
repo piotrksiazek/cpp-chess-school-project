@@ -1,6 +1,7 @@
 #include <iostream>
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_image.h>
+#include <SDL.h>
+#undef main
+#include <SDL_image.h>
 #include "initialization.hpp"
 #include "constants.hpp"
 #include "board.hpp"
@@ -47,4 +48,5 @@ int main()
 
     SDL_DestroyWindow(window);
     SDL_Quit();
+    return 0;
 }

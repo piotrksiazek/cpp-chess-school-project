@@ -1,5 +1,5 @@
 #include <iostream>
-#include <SDL2/SDL.h>
+#include <SDL.h>
 #include "square.hpp"
 #include "constants.hpp"
 using namespace std;
