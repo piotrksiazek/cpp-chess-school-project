@@ -30,16 +30,16 @@ vector<Position> King::getPossibleMoves()
         {
             int moveX = currentPosition.x + x;
             int moveY = currentPosition.y + y;
-            if(moveX < 8 && moveX >= 0 && moveY < 8 && moveY >= 0)
+            if(moveX < 8 && moveX >= 0 && moveY < 8 && moveY >= 0 && (moveX != currentPosition.x || moveY != currentPosition.y))
             {
                 Position newPossiblePosition = {moveX, moveY};
                 positions.push_back(newPossiblePosition);
             }
         }
     }
-    for(auto& position : positions)
-    {
-        cout<<"x: " <<position.x << endl << "y: " << position.y << endl;
-    }
+    // for(auto& position : positions)
+    // {
+    //     cout<<"x: " <<position.x << endl << "y: " << position.y << endl;
+    // }
     return positions;
 }

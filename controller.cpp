@@ -11,12 +11,13 @@
 #include "position.hpp"
 
 using namespace std;
-Controller::Controller(Board *board, int * squareX, int *squareY)
+Controller::Controller(Board *board, int * squareX, int *squareY, SDL_Event *event)
 {
     this->board = board;
     this->squareX = squareX;
     this->squareY = squareY;
-    getPossibleMoves();
+    this->event = event;
+    this->choosingPosition=false;
 }
 
 Piece * Controller :: GetPieceOnMouseOver()
@@ -25,13 +26,13 @@ Piece * Controller :: GetPieceOnMouseOver()
     Piece * pointedPiece;
     for(auto& piece: this->board->pieces)
     {
+        cout<<"leftr"<<endl;
         Position position;
         position = getCurrentHoveredRect(*this->board, this->squareX, this->squareY);
         if(position.x == piece->x && position.y == piece->y)
         {
             return piece;
-        }
-        
+        }     
     }
     return (Piece *)(nullptr);
 }
@@ -44,11 +45,13 @@ vector<Position> Controller :: getPossibleMoves()
     vector<Position> positions;
     if(piece != nullptr)
     {
+        // cout << this->choosingPosition << endl;
         positions = piece->getPossibleMoves();
     }
-    for(auto& pos : positions)
+    for(auto& pos : positions) //debug
     {
-        changeColor(*this->board, pos.x, pos.y);
+        changeColor(*
+        this->board, pos.x, pos.y);
     }
     return positions;
 }
