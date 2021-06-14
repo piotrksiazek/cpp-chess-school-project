@@ -29,6 +29,8 @@ class Piece
         void createRect();
         bool isInBoundaries(int x, int y, Position currentPosition);
         char color;
+        void checkDiagonal(vector<Position> positions);
+        void checkHorizontalAndVertical(vector<Position> &positions, Position currentPosition);
 };
 
 #endif

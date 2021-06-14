@@ -27,37 +27,45 @@ vector<Position> Queen::getPossibleMoves()
     Position currentPosition = { this->position.x, this->position.y };
     int moveX;
     int moveY;
+    //for (int x = -7; x <= 7; x++)
+    //{
+    //    moveX = currentPosition.x + x;
+    //    moveY = currentPosition.y + x;
+    //    //check horizontal
+    //    if (isInBoundaries(moveX, currentPosition.y, currentPosition))
+    //    {
+    //        Position newPossiblePosition = { moveX, currentPosition.y };
+    //        positions.push_back(newPossiblePosition);
+    //    }
+    //    //check vertical
+    //    if (isInBoundaries(currentPosition.x, moveY, currentPosition))
+    //    {
+    //        Position newPossiblePosition = { currentPosition.x, moveY };
+    //        positions.push_back(newPossiblePosition);
+    //    }
+    //}
+    this->checkHorizontalAndVertical(positions, currentPosition);
+    //check diagonal
+    int y = -7;
     for (int x = -7; x <= 7; x++)
     {
+        //first diagonal
         moveX = currentPosition.x + x;
-        moveY = currentPosition.y + x;
-        //check horizontal
-        if (isInBoundaries(moveX, currentPosition.y, currentPosition))
+        moveY = currentPosition.y + y;
+        if (isInBoundaries(moveX, moveY, currentPosition))
         {
-            Position newPossiblePosition = { moveX, currentPosition.y };
-            positions.push_back(newPossiblePosition);
+            Position newpossibleposition = { moveX, moveY };
+            positions.push_back(newpossibleposition);
         }
-        //check vertical
-        if (isInBoundaries(currentPosition.x, moveY, currentPosition))
+        //second diagonal
+        moveX = currentPosition.x + x;
+        moveY = currentPosition.y - y;
+        if (isInBoundaries(moveX, moveY, currentPosition))
         {
-            Position newPossiblePosition = { currentPosition.x, moveY };
-            positions.push_back(newPossiblePosition);
+            Position newpossibleposition = { moveX, moveY };
+            positions.push_back(newpossibleposition);
         }
-
-        //check diagonal
-        for (int x = -7; x <= 7; x++)
-        {
-            for (int y = -7; y <= 7; y++)
-            {
-                moveX = currentPosition.x + x;
-                moveY = currentPosition.y + y;
-                if (isInBoundaries(moveX, moveY, currentPosition))
-                {
-                    Position newpossibleposition = { moveX, moveY };
-                    positions.push_back(newpossibleposition);
-                }
-            }
-        }
+        y++;
     }
     /*for (auto& position : positions)
     {

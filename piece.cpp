@@ -54,6 +54,28 @@ bool Piece::isInBoundaries(int moveX, int moveY, Position currentPosition)
     return (moveX < 8 && moveX >= 0 && moveY < 8 && moveY >= 0 && (moveX != currentPosition.x || moveY != currentPosition.y));
 }
 
+void Piece::checkHorizontalAndVertical(vector<Position> &positions, Position currentPosition)
+{
+    int moveX, moveY;
+    for (int x = -7; x <= 7; x++)
+    {
+        moveX = currentPosition.x + x;
+        moveY = currentPosition.y + x;
+        //check horizontal
+        if (isInBoundaries(moveX, currentPosition.y, currentPosition))
+        {
+            Position newPossiblePosition = { moveX, currentPosition.y };
+            positions.push_back(newPossiblePosition);
+        }
+        //check vertical
+        if (isInBoundaries(currentPosition.x, moveY, currentPosition))
+        {
+            Position newPossiblePosition = { currentPosition.x, moveY };
+            positions.push_back(newPossiblePosition);
+        }
+    }
+}
+
 void Piece::print()
 {
     cout<< endl << "Name: " << this->name << endl;
