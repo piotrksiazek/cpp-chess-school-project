@@ -76,6 +76,32 @@ void Piece::checkHorizontalAndVertical(vector<Position> &positions, Position cur
     }
 }
 
+void Piece::checkDiagonal(vector<Position>& positions, Position currentPosition)
+{
+    int moveX, moveY;
+    int y = -7;
+    for (int x = -7; x <= 7; x++)
+    {
+        //first diagonal
+        moveX = currentPosition.x + x;
+        moveY = currentPosition.y + y;
+        if (isInBoundaries(moveX, moveY, currentPosition))
+        {
+            Position newpossibleposition = { moveX, moveY };
+            positions.push_back(newpossibleposition);
+        }
+        //second diagonal
+        moveX = currentPosition.x + x;
+        moveY = currentPosition.y - y;
+        if (isInBoundaries(moveX, moveY, currentPosition))
+        {
+            Position newpossibleposition = { moveX, moveY };
+            positions.push_back(newpossibleposition);
+        }
+        y++;
+    }
+}
+
 void Piece::print()
 {
     cout<< endl << "Name: " << this->name << endl;
