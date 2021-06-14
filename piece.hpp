@@ -24,9 +24,11 @@ class Piece
         void loadTexture();
         void print();
         virtual vector<Position> getPossibleMoves();
+        bool isFirstMove;
     protected:
         void createRect();
         bool isInBoundaries(int x, int y, Position currentPosition);
+        char color;
 };
 
 #endif

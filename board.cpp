@@ -1,10 +1,12 @@
 #include <iostream>
+#include <typeinfo>
 #include "board.hpp"
 #include "constants.hpp"
 #include "square.hpp"
 #include "king.hpp"
 #include "Queen.hpp"
 #include "piece.hpp"
+#include "pawn.hpp"
 using namespace std;
 
 Board::Board(SDL_Renderer* renderer)
@@ -19,10 +21,20 @@ void Board::populatePieces()
     // Piece *b_king = new King(4, 0, "b_king", "images/b_king.png", this->renderer);
     // this->board[b_king->y][b_king->x].piece = b_king;
     // this->pieces.push_back(b_king);
-    this->addPiece<King>(4, 0, "b_king", "images/b_king.png");
-    this->addPiece<King>(4, 7, "w_king", "images/w_king.png");
+    for (int i = 0; i < 8; i++)
+    {
+        //black pawns
+        this->addPiece<Pawn>(i, 1, "b_pawn", "images/b_pawn.png", 'b');
 
-    this->addPiece<Queen>(3, 0, "b_queen", "images/b_queen.png");
+        //white pawns
+        this->addPiece<Pawn>(i, 6, "w_pawn", "images/w_pawn.png", 'w');
+    }
+
+    this->addPiece<King>(4, 0, "b_king", "images/b_king.png", 'b');
+    this->addPiece<King>(4, 7, "w_king", "images/w_king.png", 'w');
+
+    this->addPiece<Queen>(3, 0, "b_queen", "images/b_queen.png", 'b');
+    this->addPiece<Queen>(3, 7, "w_queen", "images/w_queen.png", 'w');
     // //white king
     // Piece *w_king = new King(4, 7, "w_king", "images/w_king.png", this->renderer);
     // this->board[w_king->y][w_king->x].piece = w_king;
@@ -71,9 +83,9 @@ void Board::renderPieces()
 }
 
 template <class T>
-void Board::addPiece(int x, int y, string name, const char* filename)
+void Board::addPiece(int x, int y, string name, const char* filename, char color)
 {
-    Piece *new_piece = new T(x, y, name, filename, this->renderer);
+    Piece *new_piece = new T(x, y, name, filename, this->renderer, color);
     this->board[new_piece->position.y][new_piece->position.x].piece = new_piece;
     this->pieces.push_back(new_piece);
 }
@@ -89,4 +101,5 @@ void Board::movePieceToPosition(Piece *piece, Position position)
     piece->rectangle.x = position.x * RECT_SIZE;
     piece->rectangle.y = position.y * RECT_SIZE;
     piece->position = position;
+    piece->isFirstMove = false;
 }

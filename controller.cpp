@@ -26,7 +26,6 @@ Piece * Controller :: GetPieceOnMouseOver()
     Piece * pointedPiece;
     for(auto& piece: this->board->pieces)
     {
-        cout<<"leftr"<<endl;
         Position position;
         position = getCurrentHoveredRect(*this->board, this->squareX, this->squareY);
         if(position.x == piece->position.x && position.y == piece->position.y)
@@ -47,7 +46,7 @@ bool Controller::isChoosenRectInPossibleMoves(Position position)
     return false;
 }
 
-vector<Position> Controller :: getPossibleMoves()
+vector<Position> Controller :: controllerGetPossibleMoves()
 //returns vector of all possible moves for selected piece
 {
     Piece* piece;
@@ -66,11 +65,11 @@ vector<Position> Controller :: getPossibleMoves()
         return {};
         
     }
-    //for(auto& pos : positions) //debug
-    //{
-    //    changeColor(*
-    //    this->board, pos.x, pos.y);
-    //}
+    for(auto& pos : positions) //debug
+    {
+        changeColor(*
+        this->board, pos.x, pos.y);
+    }
 
     //debug
     //for (auto& pos : this->possibleMoves) //debug

@@ -21,6 +21,6 @@ class Board
         void movePieceToPosition(Piece* piece, Position position);
     private:
         template <class T>
-        void addPiece(int x, int y, string name, const char* filename);
+        void addPiece(int x, int y, string name, const char* filename, char color);
 };
 #endif

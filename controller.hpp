@@ -19,7 +19,7 @@ class Controller
         int *squareY;
         Board *board; //pointer to board object
         vector<Position> possibleMoves;
-        vector<Position> getPossibleMoves();
+        vector<Position> controllerGetPossibleMoves();
         bool isChoosenRectInPossibleMoves(Position position);
     private:
         SDL_Event *event;

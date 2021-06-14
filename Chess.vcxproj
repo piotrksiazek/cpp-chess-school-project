@@ -24,6 +24,7 @@
     <ClInclude Include="controller.hpp" />
     <ClInclude Include="initialization.hpp" />
     <ClInclude Include="king.hpp" />
+    <ClInclude Include="pawn.hpp" />
     <ClInclude Include="piece.hpp" />
     <ClInclude Include="position.hpp" />
     <ClInclude Include="Queen.hpp" />
@@ -36,6 +37,7 @@
     <ClCompile Include="controller.cpp" />
     <ClCompile Include="initialization.cpp" />
     <ClCompile Include="king.cpp" />
+    <ClCompile Include="pawn.cpp" />
     <ClCompile Include="piece.cpp" />
     <ClCompile Include="Queen.cpp" />
     <ClCompile Include="square.cpp" />

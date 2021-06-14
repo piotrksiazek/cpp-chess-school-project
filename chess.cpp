@@ -39,7 +39,7 @@ int main()
         {
             if (event.type == SDL_MOUSEBUTTONDOWN)
             {
-                controller.getPossibleMoves();
+                controller.controllerGetPossibleMoves();
                 if (!controller.possibleMoves.empty())
                 {
                     cout << "jestem pod funkcja empty()" << endl;

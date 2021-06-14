@@ -9,13 +9,14 @@
 #include "king.hpp"
 #include "utils.hpp"
 
-King::King(int x, int y, string name, const char* filename, SDL_Renderer* renderer)
+King::King(int x, int y, string name, const char* filename, SDL_Renderer* renderer, char color)
 {
     this->position.x=x;
     this->position.y=y;
     this->name=name;
     this->filename=filename;
     this->renderer=renderer;
+    this->color = color;
     loadTexture();
     createRect();
 }

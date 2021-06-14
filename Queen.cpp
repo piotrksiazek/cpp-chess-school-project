@@ -9,13 +9,14 @@
 #include "Queen.hpp"
 #include "utils.hpp"
 
-Queen::Queen(int x, int y, string name, const char* filename, SDL_Renderer* renderer)
+Queen::Queen(int x, int y, string name, const char* filename, SDL_Renderer* renderer, char color)
 {
     this->position.x = x;
     this->position.y = y;
     this->name = name;
     this->filename = filename;
     this->renderer = renderer;
+    this->color = color;
     loadTexture();
     createRect();
 }

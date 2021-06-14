@@ -5,13 +5,13 @@
 #include <string>
 #include "piece.hpp"
 
-#ifndef QUEEN_H
-#define QUEEN_H
+#ifndef PAWN_H
+#define PAWN_H
 
-class Queen : public Piece
+class Pawn : public Piece
 {
 public:
-    Queen(int x, int y, string name, const char* filename, SDL_Renderer* renderer, char color);
+    Pawn(int x, int y, string name, const char* filename, SDL_Renderer* renderer, char color);
     vector<Position> getPossibleMoves();
 };
 #endif
