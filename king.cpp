@@ -11,8 +11,8 @@
 
 King::King(int x, int y, string name, const char* filename, SDL_Renderer* renderer)
 {
-    this->x=x;
-    this->y=y;
+    this->position.x=x;
+    this->position.y=y;
     this->name=name;
     this->filename=filename;
     this->renderer=renderer;
@@ -23,7 +23,7 @@ King::King(int x, int y, string name, const char* filename, SDL_Renderer* render
 vector<Position> King::getPossibleMoves()
 {
     vector<Position> positions;
-    Position currentPosition = {this->x, this->y};
+    Position currentPosition = {this->position.x, this->position.y};
     for(int x=-1; x<=1; x++)
     {
         for(int y=-1; y<=1; y++)
@@ -37,9 +37,9 @@ vector<Position> King::getPossibleMoves()
             }
         }
     }
-    // for(auto& position : positions)
-    // {
-    //     cout<<"x: " <<position.x << endl << "y: " << position.y << endl;
-    // }
+     for(auto& position : positions)
+     {
+         cout<<"x: " <<position.x << endl << "y: " << position.y << endl;
+     }
     return positions;
 }

@@ -18,8 +18,8 @@ void Board::populatePieces()
     // Piece *b_king = new King(4, 0, "b_king", "images/b_king.png", this->renderer);
     // this->board[b_king->y][b_king->x].piece = b_king;
     // this->pieces.push_back(b_king);
-    this->addPiece<King>(4, 0, "b_king", "b_king.png");
-    this->addPiece<King>(4, 7, "w_king", "w_king.png");
+    this->addPiece<King>(4, 0, "b_king", "images/b_king.png");
+    this->addPiece<King>(4, 7, "w_king", "images/w_king.png");
 
     // //white king
     // Piece *w_king = new King(4, 7, "w_king", "images/w_king.png", this->renderer);
@@ -72,6 +72,16 @@ template <class T>
 void Board::addPiece(int x, int y, string name, const char* filename)
 {
     Piece *new_piece = new T(x, y, name, filename, this->renderer);
-    this->board[new_piece->y][new_piece->x].piece = new_piece;
+    this->board[new_piece->position.y][new_piece->position.x].piece = new_piece;
     this->pieces.push_back(new_piece);
 }
+
+//void Board::movePieceToPosition(Piece *piece, Position position)
+//{
+//    /*Piece* new_piece = new T(x, y, name, filename, this->renderer);
+//    this->board[new_piece->y][new_piece->x].piece = new_piece;
+//    this->pieces.push_back(new_piece);*/
+//    Piece* currentPiece = piece;
+//    this->board[piece.y][position.x].piece = nullptr;
+//
+//}

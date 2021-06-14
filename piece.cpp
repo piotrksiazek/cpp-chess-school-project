@@ -42,8 +42,8 @@ void Piece::render(SDL_Rect *rectangle)
 void Piece::createRect()
 {
     SDL_Rect r;
-    r.x = this->x * RECT_SIZE;
-    r.y = this->y * RECT_SIZE;
+    r.x = this->position.x * RECT_SIZE;
+    r.y = this->position.y * RECT_SIZE;
     r.w = RECT_SIZE;
     r.h = RECT_SIZE;
     this->rectangle=r;

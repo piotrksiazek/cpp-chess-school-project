@@ -14,10 +14,11 @@ class Controller
     public:
         Controller(Board *board, int * squareX, int *squareY, SDL_Event *event);
         Piece * GetPieceOnMouseOver();
+        Piece* selectedPiece;
         int *squareX;
         int *squareY;
-    // private:
         Board *board; //pointer to board object
+        vector<Position> possibleMoves;
         vector<Position> getPossibleMoves();
     private:
         SDL_Event *event;

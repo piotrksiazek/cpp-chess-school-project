@@ -29,7 +29,7 @@ Piece * Controller :: GetPieceOnMouseOver()
         cout<<"leftr"<<endl;
         Position position;
         position = getCurrentHoveredRect(*this->board, this->squareX, this->squareY);
-        if(position.x == piece->x && position.y == piece->y)
+        if(position.x == piece->position.x && position.y == piece->position.y)
         {
             return piece;
         }     
@@ -40,18 +40,25 @@ Piece * Controller :: GetPieceOnMouseOver()
 vector<Position> Controller :: getPossibleMoves()
 //returns vector of all possible moves for selected piece
 {
-    Piece *piece;
-    piece = this->GetPieceOnMouseOver();
+    //Piece *piece;
+    this->selectedPiece = this->GetPieceOnMouseOver();
     vector<Position> positions;
-    if(piece != nullptr)
+    if(selectedPiece != nullptr)
     {
         // cout << this->choosingPosition << endl;
-        positions = piece->getPossibleMoves();
+        positions = selectedPiece->getPossibleMoves();
     }
     for(auto& pos : positions) //debug
     {
         changeColor(*
         this->board, pos.x, pos.y);
+    }
+    this->possibleMoves = positions;
+
+    //debug
+    for (auto& pos : this->possibleMoves) //debug
+    {
+        cout << "position x: " << pos.x << endl << "position y: " << pos.y << endl << endl;
     }
     return positions;
 }

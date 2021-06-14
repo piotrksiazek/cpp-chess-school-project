@@ -14,7 +14,7 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
     <Filter Include="Resource Files\images">
-      <UniqueIdentifier>{98045b88-4973-4a0b-babf-5b0a7ba5a6a0}</UniqueIdentifier>
+      <UniqueIdentifier>{66d67dfa-0a65-47b5-820f-7a68e890c035}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -73,40 +73,40 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="b_bishop.png">
+    <Image Include="images\b_bishop.png">
       <Filter>Resource Files\images</Filter>
     </Image>
-    <Image Include="b_king.png">
+    <Image Include="images\b_king.png">
       <Filter>Resource Files\images</Filter>
     </Image>
-    <Image Include="b_knight.png">
+    <Image Include="images\b_knight.png">
       <Filter>Resource Files\images</Filter>
     </Image>
-    <Image Include="b_pawn.png">
+    <Image Include="images\b_pawn.png">
       <Filter>Resource Files\images</Filter>
     </Image>
-    <Image Include="b_queen.png">
+    <Image Include="images\b_queen.png">
       <Filter>Resource Files\images</Filter>
     </Image>
-    <Image Include="b_rook.png">
+    <Image Include="images\b_rook.png">
       <Filter>Resource Files\images</Filter>
     </Image>
-    <Image Include="w_bishop.png">
+    <Image Include="images\w_bishop.png">
       <Filter>Resource Files\images</Filter>
     </Image>
-    <Image Include="w_king.png">
+    <Image Include="images\w_king.png">
       <Filter>Resource Files\images</Filter>
     </Image>
-    <Image Include="w_knight.png">
+    <Image Include="images\w_knight.png">
       <Filter>Resource Files\images</Filter>
     </Image>
-    <Image Include="w_pawn.png">
+    <Image Include="images\w_pawn.png">
       <Filter>Resource Files\images</Filter>
     </Image>
-    <Image Include="w_queen.png">
+    <Image Include="images\w_queen.png">
       <Filter>Resource Files\images</Filter>
     </Image>
-    <Image Include="w_rook.png">
+    <Image Include="images\w_rook.png">
       <Filter>Resource Files\images</Filter>
     </Image>
   </ItemGroup>

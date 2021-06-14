@@ -13,7 +13,7 @@ class Piece
 {
     public:
         int x, y; //coordinates
-
+        Position position;
         string name;
         const char* filename;
         SDL_Texture* image_texture;

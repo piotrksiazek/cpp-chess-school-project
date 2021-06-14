@@ -40,18 +40,18 @@
     <ClCompile Include="utils.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="b_bishop.png" />
-    <Image Include="b_king.png" />
-    <Image Include="b_knight.png" />
-    <Image Include="b_pawn.png" />
-    <Image Include="b_queen.png" />
-    <Image Include="b_rook.png" />
-    <Image Include="w_bishop.png" />
-    <Image Include="w_king.png" />
-    <Image Include="w_knight.png" />
-    <Image Include="w_pawn.png" />
-    <Image Include="w_queen.png" />
-    <Image Include="w_rook.png" />
+    <Image Include="images\b_bishop.png" />
+    <Image Include="images\b_king.png" />
+    <Image Include="images\b_knight.png" />
+    <Image Include="images\b_pawn.png" />
+    <Image Include="images\b_queen.png" />
+    <Image Include="images\b_rook.png" />
+    <Image Include="images\w_bishop.png" />
+    <Image Include="images\w_king.png" />
+    <Image Include="images\w_knight.png" />
+    <Image Include="images\w_pawn.png" />
+    <Image Include="images\w_queen.png" />
+    <Image Include="images\w_rook.png" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

@@ -13,13 +13,12 @@ class Board
         SDL_Renderer* renderer;
         int numberOfSquares;
         Square board[SQUARES_PER_ROW][SQUARES_PER_ROW];
-        // Piece *pieces[32];
         vector<Piece*> pieces;
         Board(SDL_Renderer* renderer);
         void initBoard();
         void renderPieces();
-    // private:
         void populatePieces();
+        //void movePieceToPosition(Piece* piece, Position position);
     private:
         template <class T>
         void addPiece(int x, int y, string name, const char* filename);
