@@ -7,6 +7,8 @@
 #include "Queen.hpp"
 #include "piece.hpp"
 #include "pawn.hpp"
+#include "rook.hpp"
+#include "bishop.hpp"
 using namespace std;
 
 Board::Board(SDL_Renderer* renderer)
@@ -17,10 +19,7 @@ Board::Board(SDL_Renderer* renderer)
 
 void Board::populatePieces()
 {
-    //black king
-    // Piece *b_king = new King(4, 0, "b_king", "images/b_king.png", this->renderer);
-    // this->board[b_king->y][b_king->x].piece = b_king;
-    // this->pieces.push_back(b_king);
+    //pawns
     for (int i = 0; i < 8; i++)
     {
         //black pawns
@@ -30,22 +29,27 @@ void Board::populatePieces()
         this->addPiece<Pawn>(i, 6, "w_pawn", "images/w_pawn.png", 'w');
     }
 
+    //kings
     this->addPiece<King>(4, 0, "b_king", "images/b_king.png", 'b');
     this->addPiece<King>(4, 7, "w_king", "images/w_king.png", 'w');
 
+    //queens
     this->addPiece<Queen>(3, 0, "b_queen", "images/b_queen.png", 'b');
     this->addPiece<Queen>(3, 7, "w_queen", "images/w_queen.png", 'w');
-    // //white king
-    // Piece *w_king = new King(4, 7, "w_king", "images/w_king.png", this->renderer);
-    // this->board[w_king->y][w_king->x].piece = w_king;
-    // this->board[w_king->y][w_king->x].piece->render(&this->board[w_king->y][w_king->x].rectangle);
-    // this->pieces[index++] = w_king;
 
-    // //black queen
-    // Piece *b_queen = new King(3, 0, "b_queen", "images/b_queen.png", this->renderer);
-    // this->board[b_queen->y][b_queen->x].piece = b_queen;
-    // this->board[b_queen->y][b_queen->x].piece->render(&this->board[b_queen->y][b_queen->x].rectangle);
-    // this->pieces[index++] = b_queen;
+    //rooks
+    this->addPiece<Rook>(0, 0, "b_rook", "images/b_rook.png", 'b');
+    this->addPiece<Rook>(7, 0, "b_rook", "images/b_rook.png", 'b');
+
+    this->addPiece<Rook>(0, 7, "w_rook", "images/w_rook.png", 'w');
+    this->addPiece<Rook>(7, 7, "w_rook", "images/w_rook.png", 'w');
+
+    //bishops
+    this->addPiece<Bishop>(2, 0, "b_boshop", "images/b_bishop.png", 'b');
+    this->addPiece<Bishop>(5, 0, "b_boshop", "images/b_bishop.png", 'b');
+
+    this->addPiece<Bishop>(2, 7, "w_boshop", "images/w_bishop.png", 'w');
+    this->addPiece<Bishop>(5, 7, "w_boshop", "images/w_bishop.png", 'w');
 }
 
 void Board::initBoard()
