@@ -8,7 +8,7 @@
 #include "piece.hpp"
 #include "constants.hpp"
 #include "position.hpp"
-
+#include "vector2.hpp"
 using namespace std;
 Piece::Piece()
 {
@@ -100,6 +100,18 @@ void Piece::checkDiagonal(vector<Position>& positions, Position currentPosition)
         }
         y++;
     }
+}
+
+void Piece::filterOutObstacles(vector<Position> positions, Position currentPosition)
+{
+    Position directions[] = { vector2.up,
+                             vector2.down,
+                             vector2.left,
+                             vector2.right,
+                             vector2.upRight,
+                             vector2.upLeft,
+                             vector2.downRight,
+                             vector2.downleft };
 }
 
 void Piece::print()

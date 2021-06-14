@@ -31,6 +31,7 @@ class Piece
         char color;
         void checkDiagonal(vector<Position> &positions, Position currentPosition);
         void checkHorizontalAndVertical(vector<Position> &positions, Position currentPosition);
+        void filterOutObstacles(vector<Position> positions, Position currentPosition);
 };
 
 #endif

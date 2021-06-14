@@ -60,6 +60,9 @@
     <ClInclude Include="knight.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="vector2.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="board.cpp">
@@ -99,6 +102,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="knight.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="vector2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

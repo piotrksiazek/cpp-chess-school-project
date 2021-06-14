@@ -1,7 +1,4 @@
-#ifndef POSITION_H
-#define POSITION_H
+#pragma once
 typedef struct Position { 
     int x,y; 
 } Position;
-
-#endif

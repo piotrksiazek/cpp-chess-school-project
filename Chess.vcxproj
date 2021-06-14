@@ -33,6 +33,7 @@
     <ClInclude Include="rook.hpp" />
     <ClInclude Include="square.hpp" />
     <ClInclude Include="utils.hpp" />
+    <ClInclude Include="vector2.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="bishop.cpp" />
@@ -48,6 +49,7 @@
     <ClCompile Include="rook.cpp" />
     <ClCompile Include="square.cpp" />
     <ClCompile Include="utils.cpp" />
+    <ClCompile Include="vector2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="images\b_bishop.png" />
