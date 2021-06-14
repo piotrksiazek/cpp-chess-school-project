@@ -9,6 +9,7 @@
 #include "pawn.hpp"
 #include "rook.hpp"
 #include "bishop.hpp"
+#include "knight.hpp"
 using namespace std;
 
 Board::Board(SDL_Renderer* renderer)
@@ -50,6 +51,13 @@ void Board::populatePieces()
 
     this->addPiece<Bishop>(2, 7, "w_boshop", "images/w_bishop.png", 'w');
     this->addPiece<Bishop>(5, 7, "w_boshop", "images/w_bishop.png", 'w');
+
+    //knights
+    this->addPiece<Knight>(1, 0, "b_knight", "images/b_knight.png", 'b');
+    this->addPiece<Knight>(6, 0, "b_knight", "images/b_knight.png", 'b');
+
+    this->addPiece<Knight>(1, 7, "w_knight", "images/w_knight.png", 'w');
+    this->addPiece<Knight>(6, 7, "w_knight", "images/w_knight.png", 'w');
 }
 
 void Board::initBoard()
