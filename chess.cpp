@@ -34,16 +34,29 @@ int main()
     while(!exitGame)
     {
         SDL_Delay(100);
+        board.initBoard();
         while (SDL_PollEvent(&event)) 
         {
-            if(event.type == SDL_MOUSEBUTTONDOWN)
+            if (event.type == SDL_MOUSEBUTTONDOWN)
+            {
                 controller.getPossibleMoves();
+                if (!controller.possibleMoves.empty())
+                {
+                    cout << "jestem pod funkcja empty()" << endl;
+                    Position position = getCurrentHoveredRect(board, &squareX, &squareY);
+                    //cout << "X:  " << position.x << "Y:  " << position.y << endl;
+                    if(controller.isChoosenRectInPossibleMoves(position))
+                        controller.board->movePieceToPosition(controller.selectedPiece, position);
+                }
+            }
+
             exitGame = isExitGame(&event);
         }
         getCurrentHoveredRect(board, &squareX, &squareY);
         // SDL_RenderCopy(renderer, image_texture, nullptr, &board.board[0][1].rectangle);
         board.renderPieces();
         SDL_RenderPresent(renderer);
+        SDL_RenderClear(renderer);
     }
 
     SDL_DestroyWindow(window);

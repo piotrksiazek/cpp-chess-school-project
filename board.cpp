@@ -76,12 +76,15 @@ void Board::addPiece(int x, int y, string name, const char* filename)
     this->pieces.push_back(new_piece);
 }
 
-//void Board::movePieceToPosition(Piece *piece, Position position)
-//{
-//    /*Piece* new_piece = new T(x, y, name, filename, this->renderer);
-//    this->board[new_piece->y][new_piece->x].piece = new_piece;
-//    this->pieces.push_back(new_piece);*/
-//    Piece* currentPiece = piece;
-//    this->board[piece.y][position.x].piece = nullptr;
-//
-//}
+void Board::movePieceToPosition(Piece *piece, Position position)
+{
+    /*Piece* new_piece = new T(x, y, name, filename, this->renderer);
+    this->board[new_piece->y][new_piece->x].piece = new_piece;
+    this->pieces.push_back(new_piece);*/
+    Piece* currentPiece = piece; //save reference
+    this->board[position.y][position.x].piece = piece; //move reference to the new square
+    this->board[piece->position.y][piece->position.x].piece = (Piece*)nullptr; //delete reference on current position
+    piece->rectangle.x = position.x * RECT_SIZE;
+    piece->rectangle.y = position.y * RECT_SIZE;
+    piece->position = position;
+}

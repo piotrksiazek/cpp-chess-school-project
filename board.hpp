@@ -18,7 +18,7 @@ class Board
         void initBoard();
         void renderPieces();
         void populatePieces();
-        //void movePieceToPosition(Piece* piece, Position position);
+        void movePieceToPosition(Piece* piece, Position position);
     private:
         template <class T>
         void addPiece(int x, int y, string name, const char* filename);

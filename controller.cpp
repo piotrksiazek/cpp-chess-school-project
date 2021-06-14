@@ -37,23 +37,40 @@ Piece * Controller :: GetPieceOnMouseOver()
     return (Piece *)(nullptr);
 }
 
+bool Controller::isChoosenRectInPossibleMoves(Position position)
+{
+    for (auto& legalPosition : this->possibleMoves) //debug
+    {
+        if (legalPosition.x == position.x && legalPosition.y == position.y)
+            return true;
+    }
+    return false;
+}
+
 vector<Position> Controller :: getPossibleMoves()
 //returns vector of all possible moves for selected piece
 {
-    //Piece *piece;
-    this->selectedPiece = this->GetPieceOnMouseOver();
+    Piece* piece;
+    piece = this->GetPieceOnMouseOver();
     vector<Position> positions;
-    if(selectedPiece != nullptr)
+    if(piece != nullptr)
     {
-        // cout << this->choosingPosition << endl;
+        this->selectedPiece = piece;
         positions = selectedPiece->getPossibleMoves();
+        this->choosingPosition = true;
+        this->possibleMoves = positions;
     }
-    for(auto& pos : positions) //debug
+    else if(!this->choosingPosition)//if player clicked on an empty square, possible moves should be empty
     {
-        changeColor(*
-        this->board, pos.x, pos.y);
+        this->possibleMoves = {};
+        return {};
+        
     }
-    this->possibleMoves = positions;
+    //for(auto& pos : positions) //debug
+    //{
+    //    changeColor(*
+    //    this->board, pos.x, pos.y);
+    //}
 
     //debug
     for (auto& pos : this->possibleMoves) //debug
