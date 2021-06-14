@@ -73,9 +73,9 @@ vector<Position> Controller :: getPossibleMoves()
     //}
 
     //debug
-    for (auto& pos : this->possibleMoves) //debug
-    {
-        cout << "position x: " << pos.x << endl << "position y: " << pos.y << endl << endl;
-    }
+    //for (auto& pos : this->possibleMoves) //debug
+    //{
+    //    cout << "position x: " << pos.x << endl << "position y: " << pos.y << endl << endl;
+    //}
     return positions;
 }

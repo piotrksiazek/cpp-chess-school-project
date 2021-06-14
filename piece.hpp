@@ -26,6 +26,7 @@ class Piece
         virtual vector<Position> getPossibleMoves();
     protected:
         void createRect();
+        bool isInBoundaries(int x, int y, Position currentPosition);
 };
 
 #endif

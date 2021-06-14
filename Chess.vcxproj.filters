@@ -45,6 +45,9 @@
     <ClInclude Include="initialization.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Queen.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="board.cpp">
@@ -69,6 +72,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="utils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Queen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

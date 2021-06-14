@@ -3,6 +3,7 @@
 #include "constants.hpp"
 #include "square.hpp"
 #include "king.hpp"
+#include "Queen.hpp"
 #include "piece.hpp"
 using namespace std;
 
@@ -21,6 +22,7 @@ void Board::populatePieces()
     this->addPiece<King>(4, 0, "b_king", "images/b_king.png");
     this->addPiece<King>(4, 7, "w_king", "images/w_king.png");
 
+    this->addPiece<Queen>(3, 0, "b_queen", "images/b_queen.png");
     // //white king
     // Piece *w_king = new King(4, 7, "w_king", "images/w_king.png", this->renderer);
     // this->board[w_king->y][w_king->x].piece = w_king;

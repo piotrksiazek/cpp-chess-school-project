@@ -49,6 +49,11 @@ void Piece::createRect()
     this->rectangle=r;
 }
 
+bool Piece::isInBoundaries(int moveX, int moveY, Position currentPosition)
+{
+    return (moveX < 8 && moveX >= 0 && moveY < 8 && moveY >= 0 && (moveX != currentPosition.x || moveY != currentPosition.y));
+}
+
 void Piece::print()
 {
     cout<< endl << "Name: " << this->name << endl;

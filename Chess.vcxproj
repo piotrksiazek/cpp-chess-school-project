@@ -26,6 +26,7 @@
     <ClInclude Include="king.hpp" />
     <ClInclude Include="piece.hpp" />
     <ClInclude Include="position.hpp" />
+    <ClInclude Include="Queen.hpp" />
     <ClInclude Include="square.hpp" />
     <ClInclude Include="utils.hpp" />
   </ItemGroup>
@@ -36,6 +37,7 @@
     <ClCompile Include="initialization.cpp" />
     <ClCompile Include="king.cpp" />
     <ClCompile Include="piece.cpp" />
+    <ClCompile Include="Queen.cpp" />
     <ClCompile Include="square.cpp" />
     <ClCompile Include="utils.cpp" />
   </ItemGroup>
