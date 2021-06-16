@@ -24,7 +24,7 @@ class Controller
     private:
         SDL_Event *event;
         bool choosingPosition;
-        
+        void filterOutObstacles(Position currentPosition, vector<Position> &positions);
 };
 
 #endif

@@ -69,16 +69,36 @@ void Board::initBoard()
         /*Iteruję przez kolumny*/ 
         for (int x=0; x<SQUARES_PER_ROW; x++)
         {
-            // Piece *king = new King(x, y, "king", "images/b_king.png", this->renderer);
-            // this->board[y][x].piece = king;
-            SDL_Rect rect;
             if(++counter % 2 == 0)
             {
                 this->board[y][x].addProps(x, y, WHITE, this->renderer);
-                // this->board[y][x].piece->render(&this->board[y][x].rectangle);
+                
             }
             else
                 this->board[y][x].addProps(x, y, BLACK, this->renderer);
+        }
+        counter--;
+       
+   }
+   SDL_RenderPresent(renderer);
+}
+
+void Board::drawBoard()
+{
+     int counter=0;
+   /*Iteruję przez wiersze*/ 
+   for(int y=0; y<SQUARES_PER_ROW; y++)
+   {
+        /*Iteruję przez kolumny*/ 
+        for (int x=0; x<SQUARES_PER_ROW; x++)
+        {
+            
+            if(++counter % 2 == 0)
+            {
+                this->board[y][x].setColor(WHITE);
+            }
+            else
+                this->board[y][x].setColor(BLACK);
         }
         counter--;
        
@@ -99,17 +119,17 @@ void Board::addPiece(int x, int y, string name, const char* filename, char color
 {
     Piece *new_piece = new T(x, y, name, filename, this->renderer, color);
     this->board[new_piece->position.y][new_piece->position.x].piece = new_piece;
+    this->board[new_piece->position.y][new_piece->position.x].isFree = false;
     this->pieces.push_back(new_piece);
 }
 
 void Board::movePieceToPosition(Piece *piece, Position position)
 {
-    /*Piece* new_piece = new T(x, y, name, filename, this->renderer);
-    this->board[new_piece->y][new_piece->x].piece = new_piece;
-    this->pieces.push_back(new_piece);*/
     Piece* currentPiece = piece; //save reference
     this->board[position.y][position.x].piece = piece; //move reference to the new square
     this->board[piece->position.y][piece->position.x].piece = (Piece*)nullptr; //delete reference on current position
+    this->board[piece->position.y][piece->position.x].isFree = true; //notify square that it is free now
+    this->board[position.y][position.x].isFree = false; //notify new square that it is not free now
     piece->rectangle.x = position.x * RECT_SIZE;
     piece->rectangle.y = position.y * RECT_SIZE;
     piece->position = position;

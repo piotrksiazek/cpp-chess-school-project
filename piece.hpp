@@ -25,10 +25,10 @@ class Piece
         void print();
         virtual vector<Position> getPossibleMoves();
         bool isFirstMove;
+        char color;
     protected:
         void createRect();
         bool isInBoundaries(int x, int y, Position currentPosition);
-        char color;
         void checkDiagonal(vector<Position> &positions, Position currentPosition);
         void checkHorizontalAndVertical(vector<Position> &positions, Position currentPosition);
         void filterOutObstacles(vector<Position> positions, Position currentPosition);

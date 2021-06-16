@@ -29,12 +29,13 @@ int main()
     SDL_RenderClear( renderer );
     Board board(renderer);
     int squareX, squareY;
-    board.populatePieces();
     Controller controller(&board, &squareX, &squareY, &event); 
+    board.initBoard();
+    board.populatePieces();
     while(!exitGame)
     {
         SDL_Delay(100);
-        board.initBoard();
+        board.drawBoard();
         while (SDL_PollEvent(&event)) 
         {
             if (event.type == SDL_MOUSEBUTTONDOWN)

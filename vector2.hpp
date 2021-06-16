@@ -11,7 +11,7 @@ typedef struct Vector2 {
     Position downRight;
     Position downleft;
 } Vector2;
-
+bool isPositionValid(Position position, Position currentPosition);
 extern Vector2 vector2;
 
 #endif

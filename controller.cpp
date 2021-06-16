@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 #include <string>
 #include <vector>
 #include <SDL.h>
@@ -9,6 +10,7 @@
 #include "board.hpp"
 #include "utils.hpp"
 #include "position.hpp"
+#include "vector2.hpp"
 
 using namespace std;
 Controller::Controller(Board *board, int * squareX, int *squareY, SDL_Event *event)
@@ -57,6 +59,7 @@ vector<Position> Controller :: controllerGetPossibleMoves()
         this->selectedPiece = piece;
         positions = selectedPiece->getPossibleMoves();
         this->choosingPosition = true;
+        filterOutObstacles(this->selectedPiece->position, positions);
         this->possibleMoves = positions;
     }
     else if(!this->choosingPosition)//if player clicked on an empty square, possible moves should be empty
@@ -65,6 +68,12 @@ vector<Position> Controller :: controllerGetPossibleMoves()
         return {};
         
     }
+    
+    
+    
+    
+    
+    
     for(auto& pos : positions) //debug
     {
         changeColor(*
@@ -77,4 +86,45 @@ vector<Position> Controller :: controllerGetPossibleMoves()
     //    cout << "position x: " << pos.x << endl << "position y: " << pos.y << endl << endl;
     //}
     return positions;
+}
+
+void Controller::filterOutObstacles(Position currentPosition, vector<Position> &positions)
+{
+    Position directions[] = { vector2.up,
+                             vector2.down,
+                             vector2.left,
+                             vector2.right,
+                             vector2.upRight,
+                             vector2.upLeft,
+                             vector2.downRight,
+                             vector2.downleft };
+
+    for (int i = 0; i < 8; i++)
+    {
+        for (int j = 0; j < 8; j++)
+        {
+            Position currentSquarePosition = { currentPosition.x + j * directions[i].x, currentPosition.y + j * directions[i].y };
+            //if ((currentSquarePosition.x < 8 && (currentSquarePosition.x >= 0 && (currentSquarePosition.y < 8 && (currentSquarePosition.y >= 0 && ((currentSquarePosition.x != currentPosition.x || (currentSquarePosition.y != currentPosition.y))))))))
+            if(isPositionValid(currentSquarePosition, currentPosition))
+            {
+                if (!this->board->board[currentSquarePosition.y][currentSquarePosition.x].isFree)
+                {
+                    for (int k = j+1; k < 8; k++)
+                    {
+                        currentSquarePosition = { currentPosition.x + k * directions[i].x, currentPosition.y + k * directions[i].y };
+                        if (isPositionValid(currentSquarePosition, currentPosition))
+                            //if(this->board->board[currentSquarePosition.y][currentSquarePosition.x].piece->color != this->board->board[currentPosition.y][currentPosition.x].piece->color)
+                                positions.erase(std::remove(positions.begin(), positions.end(), currentSquarePosition), positions.end());
+                    }
+                }
+            }
+        }
+    }
+
+    for (auto& pos : positions) //filter out squares with pieces of the same color
+    {
+        if(this->board->board[pos.y][pos.x].piece != (Piece*)nullptr)
+            if (this->board->board[pos.y][pos.x].piece->color == this->board->board[currentPosition.y][currentPosition.x].piece->color)
+                positions.erase(std::remove(positions.begin(), positions.end(), pos), positions.end());
+    }
 }

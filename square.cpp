@@ -18,7 +18,8 @@ void Square::addProps(int x, int y, int r, int g, int b, int a, SDL_Renderer* re
     this->a = a;
     this->renderer = renderer;
     this->rectangle = createRect(x, y);
-    setColor(r,g,b,a);
+    this->isFree = true;
+    //setColor(r,g,b,a);
 }
 
 SDL_Rect Square::createRect(int x, int y)
