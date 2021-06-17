@@ -48,14 +48,19 @@ int main()
                     {
                         Position position = getCurrentHoveredRect(board, &squareX, &squareY);
                         if (controller.isChoosenRectInPossibleMoves(position))
-
+                        {
                             if (controller.isEnemy(position))
                             {
                                 board.killPiece(board.board[position.y][position.x].piece);
                                 controller.board->movePieceToPosition(controller.selectedPiece, position);
                             }
                             else
+                            {
                                 controller.board->movePieceToPosition(controller.selectedPiece, position);
+                            }
+                            controller.changeCurrentPlayerColor(); //next player's move
+                        }
+                            
                     }
                 }
                 else
