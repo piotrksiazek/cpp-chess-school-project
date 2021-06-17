@@ -135,3 +135,9 @@ void Board::movePieceToPosition(Piece *piece, Position position)
     piece->position = position;
     piece->isFirstMove = false;
 }
+
+void Board::killPiece(Piece* piece)
+{
+    this->board[piece->position.y][piece->position.x].piece = (Piece*)nullptr; //delete reference on current position
+    delete piece;
+}

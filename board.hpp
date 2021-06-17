@@ -20,6 +20,7 @@ class Board
         void populatePieces();
         void movePieceToPosition(Piece* piece, Position position);
         void drawBoard();
+        void killPiece(Piece* piece);
     private:
         template <class T>
         void addPiece(int x, int y, string name, const char* filename, char color);

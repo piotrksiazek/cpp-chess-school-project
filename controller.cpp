@@ -20,6 +20,8 @@ Controller::Controller(Board *board, int * squareX, int *squareY, SDL_Event *eve
     this->squareY = squareY;
     this->event = event;
     this->choosingPosition=false;
+
+    this->currentPlayerColor = 'w';
 }
 
 Piece * Controller :: GetPieceOnMouseOver()
@@ -47,6 +49,15 @@ bool Controller::isChoosenRectInPossibleMoves(Position position)
     }
     return false;
 }
+
+bool Controller::isEnemy(Position otherPosition)
+{
+    if(this->board->board[otherPosition.y][otherPosition.x].piece != (Piece*)nullptr)
+        return this->selectedPiece->color != this->board->board[otherPosition.y][otherPosition.x].piece->color; //if colors are not equal, other piece is an enemy
+    return false;
+}
+
+
 
 vector<Position> Controller :: controllerGetPossibleMoves()
 //returns vector of all possible moves for selected piece
@@ -124,7 +135,17 @@ void Controller::filterOutObstacles(Position currentPosition, vector<Position> &
     for (auto& pos : positions) //filter out squares with pieces of the same color
     {
         if(this->board->board[pos.y][pos.x].piece != (Piece*)nullptr)
-            if (this->board->board[pos.y][pos.x].piece->color == this->board->board[currentPosition.y][currentPosition.x].piece->color)
+            if (this->board->board[currentPosition.y][currentPosition.x].piece != (Piece*)nullptr &&
+                this->board->board[pos.y][pos.x].piece->color == this->board->board[currentPosition.y][currentPosition.x].piece->color)
+
                 positions.erase(std::remove(positions.begin(), positions.end(), pos), positions.end());
     }
+}
+
+void Controller::changeCurrentPlayerColor()
+{
+    if (this->currentPlayerColor == 'w')
+        this->currentPlayerColor = 'b';
+    else if (this->currentPlayerColor == 'b')
+        this->currentPlayerColor = 'w';
 }

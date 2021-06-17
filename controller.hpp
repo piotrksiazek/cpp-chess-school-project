@@ -21,6 +21,9 @@ class Controller
         vector<Position> possibleMoves;
         vector<Position> controllerGetPossibleMoves();
         bool isChoosenRectInPossibleMoves(Position position);
+        bool isEnemy(Position otherPosition);
+        char currentPlayerColor;
+        void changeCurrentPlayerColor();
     private:
         SDL_Event *event;
         bool choosingPosition;

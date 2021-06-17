@@ -38,17 +38,26 @@ int main()
         board.drawBoard();
         while (SDL_PollEvent(&event)) 
         {
+            //game logic
             if (event.type == SDL_MOUSEBUTTONDOWN)
             {
                 controller.controllerGetPossibleMoves();
-                if (!controller.possibleMoves.empty())
+                if (controller.selectedPiece != (Piece*)nullptr && controller.selectedPiece->color == controller.currentPlayerColor) //we go further only if it's current players turn
                 {
-                    cout << "jestem pod funkcja empty()" << endl;
-                    Position position = getCurrentHoveredRect(board, &squareX, &squareY);
-                    //cout << "X:  " << position.x << "Y:  " << position.y << endl;
-                    if(controller.isChoosenRectInPossibleMoves(position))
+                    if (!controller.possibleMoves.empty()) //player can move only if vector possibleMoves is not empty
+                    {
+                        Position position = getCurrentHoveredRect(board, &squareX, &squareY);
+                        if (controller.isChoosenRectInPossibleMoves(position))
+
+                            if (controller.isEnemy(position))
+                            {
+                                board.killPiece(controller.selectedPiece);
+                            }
                         controller.board->movePieceToPosition(controller.selectedPiece, position);
+                    }
                 }
+                else
+                    controller.selectedPiece = (Piece*)nullptr;
             }
 
             exitGame = isExitGame(&event);
