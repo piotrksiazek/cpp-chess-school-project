@@ -139,5 +139,6 @@ void Board::movePieceToPosition(Piece *piece, Position position)
 void Board::killPiece(Piece* piece)
 {
     this->board[piece->position.y][piece->position.x].piece = (Piece*)nullptr; //delete reference on current position
-    delete piece;
+    this->pieces.erase(std::remove(this->pieces.begin(), this->pieces.end(), piece), this->pieces.end());
+    //delete piece;
 }

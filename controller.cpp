@@ -65,7 +65,7 @@ vector<Position> Controller :: controllerGetPossibleMoves()
     Piece* piece;
     piece = this->GetPieceOnMouseOver();
     vector<Position> positions;
-    if(piece != nullptr)
+    if(piece != nullptr && piece->color == this->currentPlayerColor)
     {
         this->selectedPiece = piece;
         positions = selectedPiece->getPossibleMoves();
