@@ -27,46 +27,50 @@ vector<Position> Pawn::getPossibleMoves()
 {
     vector<Position> positions;
     Position currentPosition = { this->position.x, this->position.y };
-    /*if (this->isFirstMove)
-    {
-        if (this->color == 'w')
-            moveY = this->position.y - 2;
-        else if (this->color == 'b')
-            moveY = this->position.y + 2;
-        if (isInBoundaries(this->position.x, moveY, this->position))
-            positions.push_back({ this->position.x, moveY });
-    }
-    else
-    {
-        if (this->color == 'b')
-            moveY = this->position.y - 1;
-        else if (this->color == 'b')
-            moveY = this->position.y + 1;
-        if (isInBoundaries(this->position.x, moveY, this->position))
-            positions.push_back({ this->position.x, moveY });
-    }*/
+    Position possiblePositions[3];
     if (this->color == 'b')
     {
         int moveY;
         if (this->isFirstMove)
-            moveY = currentPosition.y + 2;
-        else
-            moveY = currentPosition.y+1;
-        if (isInBoundaries(this->position.x, moveY, currentPosition))
         {
-            Position newPosition = { currentPosition.x, moveY };
-            positions.push_back(newPosition);
+            positions.push_back({currentPosition.x, currentPosition.y + 2 });
+            positions.push_back({ currentPosition.x, currentPosition.y + 1 });
+        }
+        else
+        {
+            possiblePositions[0] = { currentPosition.x, currentPosition.y + 1 };
+            possiblePositions[1] = { currentPosition.x - 1, currentPosition.y + 1 };
+            possiblePositions[2] = { currentPosition.x + 1, currentPosition.y + 1 };
+            for (int i = 0; i < 3; i++)
+            {
+                if (isInBoundaries(possiblePositions[i].x, possiblePositions[i].y, currentPosition))
+                {
+                    positions.push_back(possiblePositions[i]);
+                }
+            }
         }
     }
     else
     {
         int moveY;
         if (this->isFirstMove)
-            moveY = currentPosition.y - 2;
+        {
+            positions.push_back({ currentPosition.x, currentPosition.y - 2 });
+            positions.push_back({ currentPosition.x, currentPosition.y - 1 });
+        }
         else
-            moveY = currentPosition.y - 1;
-        if (isInBoundaries(this->position.x, moveY, currentPosition))
-            positions.push_back({ this->position.x, moveY });
+        {
+            possiblePositions[0] = { currentPosition.x, currentPosition.y - 1 };
+            possiblePositions[1] = { currentPosition.x - 1, currentPosition.y - 1 };
+            possiblePositions[2] = { currentPosition.x + 1, currentPosition.y - 1 };
+            for (int i = 0; i < 3; i++)
+            {
+                if (isInBoundaries(possiblePositions[i].x, possiblePositions[i].y, currentPosition))
+                {
+                    positions.push_back(possiblePositions[i]);
+                }
+            }
+        }
     }
     return positions;
 }

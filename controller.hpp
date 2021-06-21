@@ -28,6 +28,7 @@ class Controller
         SDL_Event *event;
         bool choosingPosition;
         void filterOutObstacles(Position currentPosition, vector<Position> &positions);
+        void filterPawnMovements(vector<Position>& positions);
 };
 
 #endif

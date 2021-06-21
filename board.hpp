@@ -23,6 +23,6 @@ class Board
         void killPiece(Piece* piece);
     private:
         template <class T>
-        void addPiece(int x, int y, string name, const char* filename, char color);
+            void addPiece(int x, int y, string name, const char* filename, char color);
 };
 #endif

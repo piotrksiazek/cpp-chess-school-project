@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <string>
 #include <vector>
+#include <string>
 #include <SDL.h>
 #include <SDL_image.h>
 #include "controller.hpp"
@@ -71,6 +72,7 @@ vector<Position> Controller :: controllerGetPossibleMoves()
         positions = selectedPiece->getPossibleMoves();
         this->choosingPosition = true;
         filterOutObstacles(this->selectedPiece->position, positions);
+        filterPawnMovements(positions);
         this->possibleMoves = positions;
     }
     else if(!this->choosingPosition)//if player clicked on an empty square, possible moves should be empty
@@ -97,6 +99,20 @@ vector<Position> Controller :: controllerGetPossibleMoves()
     //    cout << "position x: " << pos.x << endl << "position y: " << pos.y << endl << endl;
     //}
     return positions;
+}
+
+void Controller::filterPawnMovements(vector<Position>& positions)
+{
+    if ((this->selectedPiece->name.compare("b_pawn") == 0 || this->selectedPiece->name.compare("w_pawn") == 0))
+    {
+        for (auto& pos : positions)
+        {
+            Piece* piece = this->board->board[pos.y][pos.x].piece;
+            if ( (piece == (Piece*)nullptr && pos.x != this->selectedPiece->position.x ) || 
+                (piece != (Piece*)nullptr && pos.x == this->selectedPiece->position.x))
+                positions.erase(std::remove(positions.begin(), positions.end(), pos), positions.end());
+        }
+    }
 }
 
 void Controller::filterOutObstacles(Position currentPosition, vector<Position> &positions)

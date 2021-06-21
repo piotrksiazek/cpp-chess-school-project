@@ -52,7 +52,7 @@ int main()
                             if (controller.isEnemy(position))
                             {
                                 board.killPiece(board.board[position.y][position.x].piece);
-                                controller.board->movePieceToPosition(controller.selectedPiece, position);
+                                controller.board->movePieceToPosition(controller.selectedPiece, position); //tutaj mozna zrobic overloading metody
                             }
                             else
                             {
