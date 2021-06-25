@@ -12,13 +12,7 @@
 using namespace std;
 Piece::Piece()
 {
-    //watch out
-    //this->x=x;
-    //this->y=y;
-   // this->name=name;
-   // this->filename=filename;
-   // this->renderer=renderer;
-  //  loadTexture();
+
 }
 vector<Position> Piece::getPossibleMoves() 
 {

@@ -59,7 +59,6 @@ bool Controller::isEnemy(Position otherPosition)
 }
 
 
-
 vector<Position> Controller :: controllerGetPossibleMoves()
 //returns vector of all possible moves for selected piece
 {
@@ -82,22 +81,11 @@ vector<Position> Controller :: controllerGetPossibleMoves()
         
     }
     
-    
-    
-    
-    
-    
     for(auto& pos : positions) //debug
     {
         changeColor(*
         this->board, pos.x, pos.y);
     }
-
-    //debug
-    //for (auto& pos : this->possibleMoves) //debug
-    //{
-    //    cout << "position x: " << pos.x << endl << "position y: " << pos.y << endl << endl;
-    //}
     return positions;
 }
 

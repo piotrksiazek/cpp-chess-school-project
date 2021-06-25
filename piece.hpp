@@ -20,8 +20,7 @@ class Piece
         SDL_Renderer* renderer;
         SDL_Rect rectangle;
         Piece();
-        //virtual ~Piece() {};
-        void render(SDL_Rect *rectangle); //TODO później zmień to na friend
+        void render(SDL_Rect *rectangle);
         void loadTexture();
         void print();
         virtual vector<Position> getPossibleMoves();
